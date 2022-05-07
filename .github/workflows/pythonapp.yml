@@ -1,0 +1,50 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        #download and install seqan-library-2.4.0
+        wget http://packages.seqan.de/seqan-library/seqan-library-2.4.0.tar.xz
+        tar -xvf seqan-library-2.4.0.tar.xz -C /tmp/        
+        sudo apt-get install -y swig
+        export SEQAN_INCLUDE_PATH=/tmp/seqan-library-2.4.0/include
+        export SWIG=swig
+        pip install -r requirements.txt
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with unittest
+      run: |
+        pip install -e .
+        python -m unittest
+        python processing.py
+        python read_sweep.py --G_init_param_fname='tests_data/pretrain_G_sample.pth'
+        python qscore_sweep.py
+        python simulator.py --mode=read --read_data=read --simulation_fname='seq_simul/data/test_oligo.txt'
+        python simulator.py --mode=qscore_data --read_data=qscore --simulation_fname='seq_simul/data/test_simulator.data'
+        python simulator.py --mode=qscore_fastq --read_data=qscore --simulation_fname='seq_simul/data/test_simulator.data'
+        python stats.py --generated_result_path='seq_simul/data/' --generated_fname='test_simulator.data'
+        rm -r results/

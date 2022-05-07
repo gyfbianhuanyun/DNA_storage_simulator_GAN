@@ -1,0 +1,11 @@
+seqanpy
+Cython==0.29.15
+editdistance==0.5.3
+flake8==3.7.9
+json5==0.9.1
+numpy==1.18.1
+torch==1.6.0
+torchvision==0.7.0
+matplotlib==3.1.0
+pandas==1.1.1
+openpyxl==3.0.5
