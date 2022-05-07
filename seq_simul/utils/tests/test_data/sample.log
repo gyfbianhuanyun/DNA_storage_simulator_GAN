@@ -1,0 +1,623 @@
+Namespace(D_hidden_size=20, D_lr=5e-05, D_model='GRU', D_num_layer=3, G_hidden_size=20, G_input_size=6, G_lr=5e-05, G_model='GRU', G_num_layer=2, b1=0.5, b2=0.999, batch_num=30000, datapath='seq_simul_data/oligo_data/', drop_prob=0.5, gap_cost=-1, log_fname='08172357_D_num_layer_3', log_path='/home/yunfei/Desktop/dna/seq_simul/wrapper_result/08171525_sweep', match_score=1, mismatch_score=-1, n_critic=5, oligo_len=48, padding_num=10, parameter_save_path='seq_simul_models/model_parameter/', result_num=3, simulation_fname='seq_simul_data/oligo_data/test_oligo_ab.data', simulation_result_fname='50_length', simulation_result_path='simulation_result', simulation_sample_num=3, total_epoch=10, trained_parameter_fname=None, verbose=True)
+
+
+[Epoch: 1/10],[Batch: 1/92],[G_loss: 0.6584381461143494],[D_loss: 0.6242286562919617]
+
+original oligo         : TGAAACTCCCTGCGTCACTGAAATAGTTAAACTGCCAT$$$$$$$$$$
+generated read         : --AAA-------------------------------------------
+generated quality score: --===-------------------------------------------
+
+original oligo         : ------CACAGCCAAGGCCAGGGTCGCGCCAGAATTATTAGACA$$$$$$$$$$----
+generated read         : GGGGGG----GGGAAGGGGGGGGGGGGGGGGGAA-----AAAAA----------AAAA
+generated quality score: <<;;;;----;<<<=<<<<==>==<=<<<==<=>----->>>>>----------=<<<
+
+original oligo         : GTCGGACTGTCCTGAGAACCTGTTCTCATATATCATTC$$$$$$$$$$
+generated read         : ------------------------------------------------
+generated quality score: ------------------------------------------------
+
+[Epoch: 1/10],[Batch: 6/92],[G_loss: 0.6593968868255615],[D_loss: 0.6231818199157715]
+
+[Epoch: 1/10],[Batch: 11/92],[G_loss: 0.6595351696014404],[D_loss: 0.6216415166854858]
+
+[Epoch: 1/10],[Batch: 16/92],[G_loss: 0.6614780426025391],[D_loss: 0.6179673671722412]
+
+[Epoch: 1/10],[Batch: 21/92],[G_loss: 0.6618043184280396],[D_loss: 0.6161239743232727]
+
+[Epoch: 1/10],[Batch: 26/92],[G_loss: 0.6666476130485535],[D_loss: 0.6147871017456055]
+
+[Epoch: 1/10],[Batch: 31/92],[G_loss: 0.6664968729019165],[D_loss: 0.6132203340530396]
+
+[Epoch: 1/10],[Batch: 36/92],[G_loss: 0.6681530475616455],[D_loss: 0.6109563112258911]
+
+[Epoch: 1/10],[Batch: 41/92],[G_loss: 0.6711571216583252],[D_loss: 0.6072691679000854]
+
+[Epoch: 1/10],[Batch: 46/92],[G_loss: 0.6718504428863525],[D_loss: 0.6057896614074707]
+
+[Epoch: 1/10],[Batch: 51/92],[G_loss: 0.6719119548797607],[D_loss: 0.6050191521644592]
+
+original oligo         : CGTAGAA-----GGAGACTAATTCTCCACGTTCACTACCACGC$$$$$$$$$$---------------------
+generated read         : AG--GAAGGGGGGGGGAAAAA------AAG-----------------------GGGGGAGGAGGGGGGGGGAAA
+generated quality score: <<--===<;;;;;;;<<<===------=<;-----------------------;::<==<;<<;:;;;;<==>>
+
+original oligo         : ----------CGCAACACGTATGCCATTACCCACGAATCGGTAGCAAG$$$$$$$$$$------------------
+generated read         : CAGGGGGGGGGG---------------------------GGGGGGAAG----------GGGGGGGGGGGGAGGGGG
+generated quality score: <<<<<;;;;<<=---------------------------<<;;<==<;----------:;;;<<<<<<===<<;;;
+
+original oligo         : CGTCCCGGGAACAAGGCCCTTCCCAGGGAAGTTCTTGG$$$$$$$$$$---------------------------
+generated read         : CG----GGG-----GG---------GGG--------GG----------GGGGGGGGGGGGGGGGGGGGAAAAAAA
+generated quality score: <<----<;;-----:;---------<==--------=;----------;;;;;;;<=<;;;<<==<<=>==>>>=
+
+[Epoch: 1/10],[Batch: 56/92],[G_loss: 0.6740772128105164],[D_loss: 0.6027812957763672]
+
+[Epoch: 1/10],[Batch: 61/92],[G_loss: 0.6757192611694336],[D_loss: 0.6009578704833984]
+
+[Epoch: 1/10],[Batch: 66/92],[G_loss: 0.6754842400550842],[D_loss: 0.5999898314476013]
+
+[Epoch: 1/10],[Batch: 71/92],[G_loss: 0.6758468151092529],[D_loss: 0.5987062454223633]
+
+[Epoch: 1/10],[Batch: 76/92],[G_loss: 0.677226185798645],[D_loss: 0.5961968302726746]
+
+[Epoch: 1/10],[Batch: 81/92],[G_loss: 0.6765773296356201],[D_loss: 0.5948002338409424]
+
+[Epoch: 1/10],[Batch: 86/92],[G_loss: 0.6752569079399109],[D_loss: 0.5942420959472656]
+
+[Epoch: 1/10],[Batch: 91/92],[G_loss: 0.6765075325965881],[D_loss: 0.5938372611999512]
+
+[Epoch: 2/10],[Batch: 1/92],[G_loss: 0.6758571863174438],[D_loss: 0.5920206308364868]
+
+original oligo         : --------CTCTCTCGCTTTCGTACTCGGTAGACTTCCTTCTTTCC$$$$$$$$$$----------------------------------
+generated read         : CAAAAAAA-------------------GGAAAA-----------------------AAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAA
+generated quality score: <<<<<=<<-------------------;<==<<-----------------------==<<;;<===<;<=<;<=<<=>=;;;<==>>>>>
+
+original oligo         : GTGACCCTCGCTATCTTAATGTGCGTGGGAGATTTACA$$$$$$$$$$-----------------------
+generated read         : ----------CAA----AACG-G-GGGGGAGA---AAA----------AAAACCAAACGGAAAAAAAAAAA
+generated quality score: ----------===----=;:9-:-:::;<<;<---=<<----------<<<<<<<==<<<<<=>=<;;<<=
+
+original oligo         : --------------------CAATGCTAGGCTATACAACTGAGCTGTGTTCTAGTCAC$$$$$$$$$$----------
+generated read         : CGGGGGGGGGGGGAAAAAAAAAAGG---GGGAAAAAAA---A----------AG--------------GAAAAAAAAA
+generated quality score: <;;;;;;;;;;;<==;;;;<<<<;<---<====<<<;<---<----------;:--------------:;<===>>>>
+
+[Epoch: 2/10],[Batch: 6/92],[G_loss: 0.675048828125],[D_loss: 0.5920738577842712]
+
+[Epoch: 2/10],[Batch: 11/92],[G_loss: 0.6745718717575073],[D_loss: 0.5914399027824402]
+
+[Epoch: 2/10],[Batch: 16/92],[G_loss: 0.6730049252510071],[D_loss: 0.5929374694824219]
+
+[Epoch: 2/10],[Batch: 21/92],[G_loss: 0.6697510480880737],[D_loss: 0.5930880308151245]
+
+[Epoch: 2/10],[Batch: 26/92],[G_loss: 0.665746808052063],[D_loss: 0.5937926173210144]
+
+[Epoch: 2/10],[Batch: 31/92],[G_loss: 0.6609712839126587],[D_loss: 0.5957494378089905]
+
+[Epoch: 2/10],[Batch: 36/92],[G_loss: 0.6575177311897278],[D_loss: 0.598078727722168]
+
+[Epoch: 2/10],[Batch: 41/92],[G_loss: 0.6559317708015442],[D_loss: 0.5996627807617188]
+
+[Epoch: 2/10],[Batch: 46/92],[G_loss: 0.6510415077209473],[D_loss: 0.6029085516929626]
+
+[Epoch: 2/10],[Batch: 51/92],[G_loss: 0.6465273499488831],[D_loss: 0.6058727502822876]
+
+original oligo         : -AAAGCTGAGTCGAGTCGAGCAAGAACGTGTCTGTAC-CA$$$$$$$$$$--------------
+generated read         : AAAACCCGCGCCGGGCCG-GC--G---GCGGCCGCACACA----------ACCCGAAAAAAAAT
+generated quality score: <<;;:;;;;;;:::;:::-:9--9---::::99;;<;;;<----------;:999:;<<=====
+
+original oligo         : TCTGCTAACCGTGCCTCCAGACAGCTATGTTGC-TAAGC$$$$$$$$$$------------------
+generated read         : AC----ACCCG-GCCCCC---CCGCCGGGGGGCGGAA------------AAAAAAAACCCAAAATTT
+generated quality score: =<----<<:::-:999:;---:9:989999999:;;<------------<<<;;;;;:::;<<<<<<
+
+original oligo         : CTGCCTACCGCACAAGAGATGTCGTACAGAGTGGAGCA$$$$$$$$$$--------------------
+generated read         : CCCCCCACC-C-----------CG----GGGGGGGGCA----------ACCCCCCGGGCCGCCGGGGT
+generated quality score: ;<<;:;;:8-9-----------89----8999:::;;<----------;;;;:::::;;;;:999::;
+
+[Epoch: 2/10],[Batch: 56/92],[G_loss: 0.6396373510360718],[D_loss: 0.6098978519439697]
+
+[Epoch: 2/10],[Batch: 61/92],[G_loss: 0.634316623210907],[D_loss: 0.6136715412139893]
+
+[Epoch: 2/10],[Batch: 66/92],[G_loss: 0.6260074377059937],[D_loss: 0.6169333457946777]
+
+[Epoch: 2/10],[Batch: 71/92],[G_loss: 0.616208016872406],[D_loss: 0.6240822076797485]
+
+[Epoch: 2/10],[Batch: 76/92],[G_loss: 0.6078256964683533],[D_loss: 0.6303568482398987]
+
+[Epoch: 2/10],[Batch: 81/92],[G_loss: 0.5979011654853821],[D_loss: 0.6398664712905884]
+
+[Epoch: 2/10],[Batch: 86/92],[G_loss: 0.5866035223007202],[D_loss: 0.6486278772354126]
+
+[Epoch: 2/10],[Batch: 91/92],[G_loss: 0.5746786594390869],[D_loss: 0.6551783680915833]
+
+[Epoch: 3/10],[Batch: 1/92],[G_loss: 0.5740858316421509],[D_loss: 0.6582763195037842]
+
+original oligo         : TCTAACACCCTGGAGATCTACGGACTATGGTTCGAGAC$$$$$$$$$$---------------------------------------
+generated read         : AC-AAAACCC--------------------------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAA
+generated quality score: =;-;;;9977--------------------------------------6788999:9998889899::::;:9999889::;;<<<<
+
+original oligo         : ---------------------GATGCCAACAACGCACACGAGACCCATCAGTTGGCCAA$$$$$$$$$$-----
+generated read         : CCACCCCCCCGCCCCCCCCCC---GCCCCCCCCCCCCCC----CCC---------CCAA----------AAAAA
+generated quality score: <;;;98887787778777778---8766688889;::98----888---------9::;----------;<<<<
+
+original oligo         : TTGCGGGTCATCATAGACTACCAAGGGTTCCCATCACT$$$$$$$$$$--------------------------------
+generated read         : --------------AAACCCCC-------CCCCCCAC-----------CCCCCCCCCCCCCCCCCCCCCCCCCCAAAAAA
+generated quality score: --------------==<::99:-------99:989:9-----------98998778888:;:8778887899::;;;<<<
+
+[Epoch: 3/10],[Batch: 6/92],[G_loss: 0.5642552971839905],[D_loss: 0.6653980016708374]
+
+[Epoch: 3/10],[Batch: 11/92],[G_loss: 0.5556045770645142],[D_loss: 0.6734361052513123]
+
+[Epoch: 3/10],[Batch: 16/92],[G_loss: 0.5484943389892578],[D_loss: 0.6807774901390076]
+
+[Epoch: 3/10],[Batch: 21/92],[G_loss: 0.5419831275939941],[D_loss: 0.6862415671348572]
+
+[Epoch: 3/10],[Batch: 26/92],[G_loss: 0.5413442254066467],[D_loss: 0.6904480457305908]
+
+[Epoch: 3/10],[Batch: 31/92],[G_loss: 0.5390322804450989],[D_loss: 0.6921943426132202]
+
+[Epoch: 3/10],[Batch: 36/92],[G_loss: 0.5386332273483276],[D_loss: 0.6944178342819214]
+
+[Epoch: 3/10],[Batch: 41/92],[G_loss: 0.5426928400993347],[D_loss: 0.6948413252830505]
+
+[Epoch: 3/10],[Batch: 46/92],[G_loss: 0.5458284616470337],[D_loss: 0.6944373250007629]
+
+[Epoch: 3/10],[Batch: 51/92],[G_loss: 0.5499438047409058],[D_loss: 0.6934077739715576]
+
+original oligo         : --------------------------------------GACATAGGCCATAAGCAGAGGTACCGTGTATGCAACCA$$$$$$$$$$-
+generated read         : CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC--------CC-------------CC-------CCACC-----------C
+generated quality score: <;9999998678898777888998668899::888766--------77-------------9:-------:;;;;-----------;
+
+original oligo         : ATTGGGTCTAACTTGAGTTCTACCCGGGAACGCCACAA$$$$$$$$$$-----------------------------------
+generated read         : A--------AA----------ACCC-----CCCCCC------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: <--------<<----------;:::-----999978------------99999:9998656678876656667789:::;;;;
+
+original oligo         : -TCGGGAGAGTACAGACCTACACGACTCGATACTGCCCT$$$$$$$$$$-----------------------------------
+generated read         : A--------------ACC--CCC--CCC-------CCC-----------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =--------------;::--999--989-------988-----------8876787766767777897887657789:::;;;;
+
+[Epoch: 3/10],[Batch: 56/92],[G_loss: 0.5539005994796753],[D_loss: 0.691499650478363]
+
+[Epoch: 3/10],[Batch: 61/92],[G_loss: 0.5579614639282227],[D_loss: 0.6900230646133423]
+
+[Epoch: 3/10],[Batch: 66/92],[G_loss: 0.5634934902191162],[D_loss: 0.6885892152786255]
+
+[Epoch: 3/10],[Batch: 71/92],[G_loss: 0.5662765502929688],[D_loss: 0.6868231296539307]
+
+[Epoch: 3/10],[Batch: 76/92],[G_loss: 0.5735898613929749],[D_loss: 0.6851509809494019]
+
+[Epoch: 3/10],[Batch: 81/92],[G_loss: 0.5790974497795105],[D_loss: 0.6836060881614685]
+
+[Epoch: 3/10],[Batch: 86/92],[G_loss: 0.5831075310707092],[D_loss: 0.6814239621162415]
+
+[Epoch: 3/10],[Batch: 91/92],[G_loss: 0.5886144638061523],[D_loss: 0.68033766746521]
+
+[Epoch: 4/10],[Batch: 1/92],[G_loss: 0.5911003351211548],[D_loss: 0.6810247898101807]
+
+original oligo         : AACATAACTATGGACCCATAGTGGGCGTCCCTCCTTGC$$$$$$$$$$---------------------------------
+generated read         : AAC----C------CCC-----------CCCACC--------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: <;9----9------:::-----------899:::--------------:8766888::998898767767998889::;;;
+
+original oligo         : -TCTTGCCATCTGGGCATAAACCCGGACACATACCCGTA$$$$$$$$$$------------------------------
+generated read         : A-----CCACC----------CCC---CCC---CCC-------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =-----;;;;9----------879---899---998-------------8999987667877778876568899:;;;;
+
+original oligo         : -CTTGAGAGTAGCCGGCGCGTAACGACGATTGGTTCGGG$$$$$$$$$$-----------------------------------
+generated read         : CC--------ACCC--CCC------------------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ;;--------;;;:--:9:------------------------------:9877777678998787789::9:;999899::;;
+
+[Epoch: 4/10],[Batch: 6/92],[G_loss: 0.5963599681854248],[D_loss: 0.6787580251693726]
+
+[Epoch: 4/10],[Batch: 11/92],[G_loss: 0.5999740362167358],[D_loss: 0.6784482002258301]
+
+[Epoch: 4/10],[Batch: 16/92],[G_loss: 0.6052998304367065],[D_loss: 0.6771948933601379]
+
+[Epoch: 4/10],[Batch: 21/92],[G_loss: 0.6070072650909424],[D_loss: 0.6768600940704346]
+
+[Epoch: 4/10],[Batch: 26/92],[G_loss: 0.6114816665649414],[D_loss: 0.6768685579299927]
+
+[Epoch: 4/10],[Batch: 31/92],[G_loss: 0.6128326058387756],[D_loss: 0.6766384840011597]
+
+[Epoch: 4/10],[Batch: 36/92],[G_loss: 0.6155977845191956],[D_loss: 0.6757891178131104]
+
+[Epoch: 4/10],[Batch: 41/92],[G_loss: 0.6187236309051514],[D_loss: 0.6759835481643677]
+
+[Epoch: 4/10],[Batch: 46/92],[G_loss: 0.6204206347465515],[D_loss: 0.6765880584716797]
+
+[Epoch: 4/10],[Batch: 51/92],[G_loss: 0.6225256323814392],[D_loss: 0.6746348142623901]
+
+original oligo         : AATACAAGAGAGCTGACGGTGGACTAGCGACAGGGATA$$$$$$$$$$-----------------------------------
+generated read         : AAAAC-------------------------------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =<;;:-------------------------------------------999:9:9899:889::::99:998988899::::;
+
+original oligo         : CCTTAGAAGGAGCATGAGTAATCCACCTTCGTAGCGCA$$$$$$$$$$--------------------------------
+generated read         : CC--------------------CCCCC-------CCC-----------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ;:--------------------:::::-------:9:-----------::99:::::::;9887789989:9887889:;
+
+original oligo         : -ACTTTCGGCCTTCTTCTGAACCGTGCCAGAGGTTTGGT$$$$$$$$$$-------------------------------
+generated read         : C--------CC--------AACC---CC---------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: <--------::--------;;::---:9---------------------78989:9999:8779:9788999:;;;:;::
+
+[Epoch: 4/10],[Batch: 56/92],[G_loss: 0.6248765587806702],[D_loss: 0.6773017644882202]
+
+[Epoch: 4/10],[Batch: 61/92],[G_loss: 0.6270357966423035],[D_loss: 0.6765447854995728]
+
+[Epoch: 4/10],[Batch: 66/92],[G_loss: 0.6293511986732483],[D_loss: 0.6763845682144165]
+
+[Epoch: 4/10],[Batch: 71/92],[G_loss: 0.6295140385627747],[D_loss: 0.6777594089508057]
+
+[Epoch: 4/10],[Batch: 76/92],[G_loss: 0.6302686333656311],[D_loss: 0.6773651838302612]
+
+[Epoch: 4/10],[Batch: 81/92],[G_loss: 0.6323040127754211],[D_loss: 0.6755267381668091]
+
+[Epoch: 4/10],[Batch: 86/92],[G_loss: 0.6326345801353455],[D_loss: 0.677383542060852]
+
+[Epoch: 4/10],[Batch: 91/92],[G_loss: 0.6334536671638489],[D_loss: 0.6776514053344727]
+
+[Epoch: 5/10],[Batch: 1/92],[G_loss: 0.636914074420929],[D_loss: 0.6780678033828735]
+
+original oligo         : ACCGCAATGCCACACCCGTTGGGCGGTCATGCCGCATC$$$$$$$$$$------------------------
+generated read         : CCCCC----CCCCCCCC--------------CCCC-------------CCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: <:999----99::9887--------------8776-------------79:;::999::9::98888:999:
+
+original oligo         : ---------------CTTCACAACAAATACAATGCCGAACCGAATATTAACCT$$$$$$$$$$----
+generated read         : CCACCCCCCCCCCACC--CACCCC-----C----CCCCCCCCAA----AACC-----------CCCC
+generated quality score: ;;<;:9998899:;::--:;:988-----9----:98899:;;<----;;98-----------9::;
+
+original oligo         : -GTAATGCCTTGTCTTCACATTTCGCGTGAGCTTGAACG$$$$$$$$$$--------------------------------
+generated read         : C------CC-------CAC----CCC-----------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =------<<-------;;;----989-----------------------:;;::;::99:;;::99::::99:;;:999:;
+
+[Epoch: 5/10],[Batch: 6/92],[G_loss: 0.6371511220932007],[D_loss: 0.6778280735015869]
+
+[Epoch: 5/10],[Batch: 11/92],[G_loss: 0.6376186609268188],[D_loss: 0.6782848834991455]
+
+[Epoch: 5/10],[Batch: 16/92],[G_loss: 0.6391247510910034],[D_loss: 0.6784360408782959]
+
+[Epoch: 5/10],[Batch: 21/92],[G_loss: 0.6391963362693787],[D_loss: 0.6795522570610046]
+
+[Epoch: 5/10],[Batch: 26/92],[G_loss: 0.6404271125793457],[D_loss: 0.6797188520431519]
+
+[Epoch: 5/10],[Batch: 31/92],[G_loss: 0.6420063972473145],[D_loss: 0.6792095899581909]
+
+[Epoch: 5/10],[Batch: 36/92],[G_loss: 0.6426544189453125],[D_loss: 0.6795246005058289]
+
+[Epoch: 5/10],[Batch: 41/92],[G_loss: 0.6443288922309875],[D_loss: 0.6801661252975464]
+
+[Epoch: 5/10],[Batch: 46/92],[G_loss: 0.6452006697654724],[D_loss: 0.6805017590522766]
+
+[Epoch: 5/10],[Batch: 51/92],[G_loss: 0.6453425288200378],[D_loss: 0.679705023765564]
+
+original oligo         : TAATGTCAGGAGTGTGAGGTTCAACAAATCGCGACGTG$$$$$$$$$$------------------------------
+generated read         : ----------------------AAAAAACCCC----------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ----------------------=<<<<<;;::----------------;;;;<<<;;;<;::999:;::99:99;;;;
+
+original oligo         : ---CGATAACGGTTAGATCGATTAGTAGTCTAGGCAATTTC$$$$$$$$$$----------------------------------
+generated read         : CCCC------------------------------CA---------------CCCCCCCCCCCCCCACCCCCCCCCCCCCCCACCC
+generated quality score: <;;;------------------------------;;---------------:9:;<<;;;:::;<<;<;;;;;;;;99:;;<;::
+
+original oligo         : AGTCGACCAGTGATTCCAAGGCTGTGGCACACGCGGTG$$$$$$$$$$-----------------------------
+generated read         : ------CC-------CC----------CCCCCCC--------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ------<<-------;:----------::9889:--------------:;<<:999::9::;;;998988889:;;;
+
+[Epoch: 5/10],[Batch: 56/92],[G_loss: 0.646547257900238],[D_loss: 0.6794918775558472]
+
+[Epoch: 5/10],[Batch: 61/92],[G_loss: 0.6456613540649414],[D_loss: 0.68077552318573]
+
+[Epoch: 5/10],[Batch: 66/92],[G_loss: 0.649219810962677],[D_loss: 0.6823198795318604]
+
+[Epoch: 5/10],[Batch: 71/92],[G_loss: 0.6491212844848633],[D_loss: 0.682150661945343]
+
+[Epoch: 5/10],[Batch: 76/92],[G_loss: 0.6489553451538086],[D_loss: 0.6817505955696106]
+
+[Epoch: 5/10],[Batch: 81/92],[G_loss: 0.6496437788009644],[D_loss: 0.6811966896057129]
+
+[Epoch: 5/10],[Batch: 86/92],[G_loss: 0.6525799632072449],[D_loss: 0.6810136437416077]
+
+[Epoch: 5/10],[Batch: 91/92],[G_loss: 0.6535677313804626],[D_loss: 0.6820460557937622]
+
+[Epoch: 6/10],[Batch: 1/92],[G_loss: 0.6541838645935059],[D_loss: 0.68045973777771]
+
+original oligo         : CTGTTAGGGCGCTCAACCTGGTATCGCGCCCTATAACC$$$$$$$$$$-----------------------
+generated read         : C--------CCCCC--CC------CCCCCCC-----CC----------CCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: <--------<<<<;--;;------;::9:::-----:9----------89::;;<;:999889:;;;:99:
+
+original oligo         : CCATCTCTGGTTGATGGTTCCGCATAGCCGTCGCTGCT$$$$$$$$$$--------------------------
+generated read         : CC--CCC------------CCCC----CC--CCC--------------CCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: <:--:;:------------;:;;----;<--=<<--------------<;;<<;9:9:;<;:99;::9:;:;;;
+
+original oligo         : ---CGATAATATCACACACCCTATACTGCCCTACGGCTCCA$$$$$$$$$$----------------
+generated read         : CCCCCAAAA----ACCCCCCC-------CCC-----CCCC-----------CCCCCCCCCCCCCCCC
+generated quality score: <;;;;;<<<----;;::9998-------79:-----;;::-----------::989:99::;:99:;
+
+[Epoch: 6/10],[Batch: 6/92],[G_loss: 0.6546472907066345],[D_loss: 0.68192458152771]
+
+[Epoch: 6/10],[Batch: 11/92],[G_loss: 0.6532407402992249],[D_loss: 0.6814556121826172]
+
+[Epoch: 6/10],[Batch: 16/92],[G_loss: 0.6537625193595886],[D_loss: 0.6813280582427979]
+
+[Epoch: 6/10],[Batch: 21/92],[G_loss: 0.6541544198989868],[D_loss: 0.6812777519226074]
+
+[Epoch: 6/10],[Batch: 26/92],[G_loss: 0.655182957649231],[D_loss: 0.6821951866149902]
+
+[Epoch: 6/10],[Batch: 31/92],[G_loss: 0.6546124815940857],[D_loss: 0.6832369565963745]
+
+[Epoch: 6/10],[Batch: 36/92],[G_loss: 0.6570221781730652],[D_loss: 0.6827410459518433]
+
+[Epoch: 6/10],[Batch: 41/92],[G_loss: 0.6562485694885254],[D_loss: 0.6821153163909912]
+
+[Epoch: 6/10],[Batch: 46/92],[G_loss: 0.6561514735221863],[D_loss: 0.6812605857849121]
+
+[Epoch: 6/10],[Batch: 51/92],[G_loss: 0.6565357446670532],[D_loss: 0.6833774447441101]
+
+original oligo         : -CAATCACTACTACCCGCGCTGCGTGCTCTCAGCTAAGG$$$$$$$$$$----------------------
+generated read         : CC---CAC-----CCCCCCC------CCCCC------------------CCCCCCCCCCCCCCCCCCCCCC
+generated quality score: <;---;<;-----;:;<;;;------:9899------------------::;;::;;:;:;::;:;;;;;<
+
+original oligo         : ------------------------CAGCACGCTGTGTGTTCCCTGACTATACCAGCTTGTTT$$$$$$$$$$-
+generated read         : CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC--------CCC--------CCA------------------C
+generated quality score: <;;::9:9;;<<====<:9::;:;;<<:99:9--------;<<--------<==------------------<
+
+original oligo         : AGGCGTGCATCCATGCTTATACACCAGGTAGGAGCAAA$$$$$$$$$$--------------------------------
+generated read         : A---------CC---------CCCC-----------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =---------=<---------;;<<-----------------------;;;:99:;:;<<<<::989:;<<<<<;::::;
+
+[Epoch: 6/10],[Batch: 56/92],[G_loss: 0.6562056541442871],[D_loss: 0.6835952997207642]
+
+[Epoch: 6/10],[Batch: 61/92],[G_loss: 0.6574465036392212],[D_loss: 0.6829184889793396]
+
+[Epoch: 6/10],[Batch: 66/92],[G_loss: 0.6563657522201538],[D_loss: 0.6836667060852051]
+
+[Epoch: 6/10],[Batch: 71/92],[G_loss: 0.6561976075172424],[D_loss: 0.6845706105232239]
+
+[Epoch: 6/10],[Batch: 76/92],[G_loss: 0.6570426225662231],[D_loss: 0.6837788224220276]
+
+[Epoch: 6/10],[Batch: 81/92],[G_loss: 0.6547041535377502],[D_loss: 0.6848112344741821]
+
+[Epoch: 6/10],[Batch: 86/92],[G_loss: 0.655958354473114],[D_loss: 0.6854747533798218]
+
+[Epoch: 6/10],[Batch: 91/92],[G_loss: 0.6565485596656799],[D_loss: 0.6851320266723633]
+
+[Epoch: 7/10],[Batch: 1/92],[G_loss: 0.6572474241256714],[D_loss: 0.6847182512283325]
+
+original oligo         : -----------AGCCGCAGGTATACGTTTGTAATGCCTAGCTAACACGA$$$$$$$$$$-------------
+generated read         : ACCCCCCCCCCCCCCCC------------------CC---CCAACCC------------CCCCCCCCCCCCC
+generated quality score: =<;:::;;<===<;:;<------------------=<---<<<<<;:------------;;;:;;;::::;<
+
+original oligo         : TCCGCCTAGTGCGCTATTACGGTGACAGGGTCCAGACC$$$$$$$$$$---------------------------
+generated read         : ACCCCC-----CCC-----------------CC---CC----------CCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =<:;::-----;<<-----------------<<---;;----------:;;<<<;;;<<<;:;;;<;::;;:9:<
+
+original oligo         : -------------CATGTCAGTACAATAGTTGGCAGAAACAAAGAGATAGC$$$$$$$$$$---------------------
+generated read         : CCCCCCCCCCCCCCA---C----CA------------------------------------CCCCCCCCCCCCCCCCCACCC
+generated quality score: <;<<=<<;<<;;;<=---<----==------------------------------------==;;;<<<;;;<<<<<==<;;
+
+[Epoch: 7/10],[Batch: 6/92],[G_loss: 0.6562020182609558],[D_loss: 0.6851453185081482]
+
+[Epoch: 7/10],[Batch: 11/92],[G_loss: 0.6569963693618774],[D_loss: 0.6842262148857117]
+
+[Epoch: 7/10],[Batch: 16/92],[G_loss: 0.6567432880401611],[D_loss: 0.6840306520462036]
+
+[Epoch: 7/10],[Batch: 21/92],[G_loss: 0.6567535400390625],[D_loss: 0.6846904754638672]
+
+[Epoch: 7/10],[Batch: 26/92],[G_loss: 0.6554440259933472],[D_loss: 0.6852019429206848]
+
+[Epoch: 7/10],[Batch: 31/92],[G_loss: 0.6565060615539551],[D_loss: 0.6860383749008179]
+
+[Epoch: 7/10],[Batch: 36/92],[G_loss: 0.6564390063285828],[D_loss: 0.6863316297531128]
+
+[Epoch: 7/10],[Batch: 41/92],[G_loss: 0.656648576259613],[D_loss: 0.6853007078170776]
+
+[Epoch: 7/10],[Batch: 46/92],[G_loss: 0.6582375168800354],[D_loss: 0.6852635145187378]
+
+[Epoch: 7/10],[Batch: 51/92],[G_loss: 0.6557928323745728],[D_loss: 0.6867037415504456]
+
+original oligo         : -----------------------GCCGTATCTGTATGACGCTTGACCTATAATGGTTCCTG$$$$$$$$$$-----
+generated read         : CCCCCCCCCCCCCCCCCCCCCCCCCC------------CCC---ACC----------CC------------CCCCC
+generated quality score: =<::;;<:;;<<<<=;;;<===<:;<------------<<<---===----------=>------------=;<<<
+
+original oligo         : AACTTAGCGGAAACCACCCGCGCGTAGGATTCGCCGCA$$$$$$$$$$--------------------
+generated read         : CAC----------CCCCCCCCCC--------CCCCCC-----------CCCCCCCCCCCCCCCCCCCC
+generated quality score: =<;----------<<<<;;;<<<--------;::998-----------9:;:;<=<<<<=;;::::;;
+
+original oligo         : --------ATCTGAATATTTCAGCGCCGCACCTCCTAGGATACATC$$$$$$$$$$--------------
+generated read         : AACCCCCCA----AA------ACCCCCCCCCCCCC---------------------CCCCCCCCCCCCCC
+generated quality score: ==<<<=<==----==------=<<<;;;:;;;;:;---------------------;:;<<<===;;<;;
+
+[Epoch: 7/10],[Batch: 56/92],[G_loss: 0.6563570499420166],[D_loss: 0.685157060623169]
+
+[Epoch: 7/10],[Batch: 61/92],[G_loss: 0.6561986804008484],[D_loss: 0.6862279176712036]
+
+[Epoch: 7/10],[Batch: 66/92],[G_loss: 0.6568836569786072],[D_loss: 0.6862832307815552]
+
+[Epoch: 7/10],[Batch: 71/92],[G_loss: 0.656036913394928],[D_loss: 0.6860442161560059]
+
+[Epoch: 7/10],[Batch: 76/92],[G_loss: 0.6562796235084534],[D_loss: 0.6859723925590515]
+
+[Epoch: 7/10],[Batch: 81/92],[G_loss: 0.6583154797554016],[D_loss: 0.6858384609222412]
+
+[Epoch: 7/10],[Batch: 86/92],[G_loss: 0.6587392091751099],[D_loss: 0.6856714487075806]
+
+[Epoch: 7/10],[Batch: 91/92],[G_loss: 0.6569759249687195],[D_loss: 0.6864404678344727]
+
+[Epoch: 8/10],[Batch: 1/92],[G_loss: 0.6581938862800598],[D_loss: 0.6860942840576172]
+
+original oligo         : -------------------TCGTTGCCGGAATATACCCGCCACGAATGATATTTCAC$$$$$$$$$$---
+generated read         : CCCCCCCCCCCCCCAACCCCC----CC--------CCCCCCCCCAA---------AC----------CCC
+generated quality score: =<;<==<;;;<<<===<::;;----:;--------;;==>>>>==>---------><----------<;;
+
+original oligo         : -TGTTCCCGACACCACTACGGCAACACTAGAGCAGCGTC$$$$$$$$$$--------------------------
+generated read         : A----CCC--CCCCCC--------CCC----------------------CCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =----===--<;::<;--------;::----------------------;:;<;;<<<<;;:<<<==<<<<<=<<
+
+original oligo         : GCCGAAGAGAGCAACCTGCAGGCACAGCTGCCTGCAGA$$$$$$$$$$-----------------------------
+generated read         : CCC-----------CC------CCC-----CC----------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: >=;-----------;<------<<=-----==----------------=<<<;:<<;<<<<<;<<<==<;<<;<<<=
+
+[Epoch: 8/10],[Batch: 6/92],[G_loss: 0.657792866230011],[D_loss: 0.6859434843063354]
+
+[Epoch: 8/10],[Batch: 11/92],[G_loss: 0.6592920422554016],[D_loss: 0.6851897239685059]
+
+[Epoch: 8/10],[Batch: 16/92],[G_loss: 0.6593683362007141],[D_loss: 0.6851590871810913]
+
+[Epoch: 8/10],[Batch: 21/92],[G_loss: 0.6593350768089294],[D_loss: 0.6859961152076721]
+
+[Epoch: 8/10],[Batch: 26/92],[G_loss: 0.6597266793251038],[D_loss: 0.6844766139984131]
+
+[Epoch: 8/10],[Batch: 31/92],[G_loss: 0.6600685119628906],[D_loss: 0.6850488781929016]
+
+[Epoch: 8/10],[Batch: 36/92],[G_loss: 0.6590325236320496],[D_loss: 0.6844296455383301]
+
+[Epoch: 8/10],[Batch: 41/92],[G_loss: 0.6602302193641663],[D_loss: 0.6851585507392883]
+
+[Epoch: 8/10],[Batch: 46/92],[G_loss: 0.6606002449989319],[D_loss: 0.6844805479049683]
+
+[Epoch: 8/10],[Batch: 51/92],[G_loss: 0.6612123847007751],[D_loss: 0.6845815181732178]
+
+original oligo         : GTCCTACGTGGCACCCTCAGATTTCTGCCGTATGACGA$$$$$$$$$$----------------------------
+generated read         : --CC-------CCCCCCC---------CC-------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: -->>-------<;<<;;<---------==-------------------==<;:<;<<<=>><<=<;<=>>>><<<=
+
+original oligo         : -ATCTGCCAGGACGGTGATTGGTCTCGTATGAGTTACTC$$$$$$$$$$---------------------------
+generated read         : CACC--CC---------------CCC----------CCC----------CCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ====--==---------------;<<----------==<----------;<=======><=<<=======>><<<<
+
+original oligo         : ----------CCAGCACGTAATCTGAGTAAATATCTGCCTCCTCCAAG$$$$$$$$$$-------
+generated read         : CCCCCCCCCCCCCCCCCCCAA-------AAA------CCCCCCCC-------------CCCCCCC
+generated quality score: <;;<<<<<====<<===>>>=------->>>------<<<<;;;;-------------<<;<<<=
+
+[Epoch: 8/10],[Batch: 56/92],[G_loss: 0.6615024209022522],[D_loss: 0.6851863265037537]
+
+[Epoch: 8/10],[Batch: 61/92],[G_loss: 0.6604885458946228],[D_loss: 0.6839991807937622]
+
+[Epoch: 8/10],[Batch: 66/92],[G_loss: 0.6619430780410767],[D_loss: 0.6835718154907227]
+
+[Epoch: 8/10],[Batch: 71/92],[G_loss: 0.6640740036964417],[D_loss: 0.6840033531188965]
+
+[Epoch: 8/10],[Batch: 76/92],[G_loss: 0.6613532304763794],[D_loss: 0.6845259666442871]
+
+[Epoch: 8/10],[Batch: 81/92],[G_loss: 0.6638028621673584],[D_loss: 0.6819081902503967]
+
+[Epoch: 8/10],[Batch: 86/92],[G_loss: 0.6639465093612671],[D_loss: 0.6836580038070679]
+
+[Epoch: 8/10],[Batch: 91/92],[G_loss: 0.6631776690483093],[D_loss: 0.6834701299667358]
+
+[Epoch: 9/10],[Batch: 1/92],[G_loss: 0.6654192805290222],[D_loss: 0.6827932596206665]
+
+original oligo         : GTGCGTTGATCCATCTAACCCTTTGAGAGTGAGAATAG$$$$$$$$$$----------------------------------
+generated read         : ----------CC------CCC---------------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ----------=>------=<<--------------------------->>>==<<<===>><;:<=>>==============
+
+original oligo         : -ATCCAGCTCCGTTACGCCACACAACCTTCTTGTATTAC$$$$$$$$$$--------------------
+generated read         : CACCC--CCCC----CCCCCCCC--CC----------------------CCCCCCCCCCCCCCCCCACC
+generated quality score: ==;;;--<<=<----<<>>=<<;--:;----------------------;<;<<;;<<<<=======<<
+
+original oligo         : CTCCGAGTTGGTGTGGACCAGCCTCCGATTACGTTATA$$$$$$$$$$----------------------------
+generated read         : CCCC-------------CC--CCCCC----------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: <<;;-------------;=--=>>>>---------------------->>>===<;;<<;<;;;<===<<=>====
+
+[Epoch: 9/10],[Batch: 6/92],[G_loss: 0.664423942565918],[D_loss: 0.6828353404998779]
+
+[Epoch: 9/10],[Batch: 11/92],[G_loss: 0.6644901037216187],[D_loss: 0.6832579374313354]
+
+[Epoch: 9/10],[Batch: 16/92],[G_loss: 0.6636975407600403],[D_loss: 0.6828553676605225]
+
+[Epoch: 9/10],[Batch: 21/92],[G_loss: 0.6666823029518127],[D_loss: 0.6810566186904907]
+
+[Epoch: 9/10],[Batch: 26/92],[G_loss: 0.6653649806976318],[D_loss: 0.68329918384552]
+
+[Epoch: 9/10],[Batch: 31/92],[G_loss: 0.666841447353363],[D_loss: 0.6829686164855957]
+
+[Epoch: 9/10],[Batch: 36/92],[G_loss: 0.6664289236068726],[D_loss: 0.6822512745857239]
+
+[Epoch: 9/10],[Batch: 41/92],[G_loss: 0.6664690375328064],[D_loss: 0.6818251609802246]
+
+[Epoch: 9/10],[Batch: 46/92],[G_loss: 0.6663863658905029],[D_loss: 0.6829981803894043]
+
+[Epoch: 9/10],[Batch: 51/92],[G_loss: 0.6668317317962646],[D_loss: 0.6819912195205688]
+
+original oligo         : CTCGAACCCGTAGGGTTAGGTGCTGAAGACTCACACTC$$$$$$$$$$------------------------
+generated read         : CCC---CCC--------------------CCCCCCCCC----------CCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ==;---<<<--------------------;;;<>>>>>----------?>>=>>>===>>==<=<<;;;<;<
+
+original oligo         : TGATGGACCTGTCTTTATGCCCACTGGGTATATAGGTG$$$$$$$$$$-------------------------------
+generated read         : ------ACC----------CCCCC------------------------CCCCCCCCCCCCCCCCCCCCCCCCAACCCCC
+generated quality score: ------>>>----------====<------------------------;;<><=======<;<<==>>??>>>>>>??>
+
+original oligo         : CTGGGTGCCCATTGCAGGAACGTTCGGCGAGGGAGCGG$$$$$$$$$$-----------------------------------
+generated read         : C------CCC--------------------------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =------===-------------------------------------->>>=<;<=>=<<<=>><<=>=<=<<=========>
+
+[Epoch: 9/10],[Batch: 56/92],[G_loss: 0.6671311855316162],[D_loss: 0.6841875314712524]
+
+[Epoch: 9/10],[Batch: 61/92],[G_loss: 0.6663835644721985],[D_loss: 0.6853576302528381]
+
+[Epoch: 9/10],[Batch: 66/92],[G_loss: 0.6676666736602783],[D_loss: 0.6848127245903015]
+
+[Epoch: 9/10],[Batch: 71/92],[G_loss: 0.6673287749290466],[D_loss: 0.6849597692489624]
+
+[Epoch: 9/10],[Batch: 76/92],[G_loss: 0.6669970154762268],[D_loss: 0.6855002641677856]
+
+[Epoch: 9/10],[Batch: 81/92],[G_loss: 0.6685735583305359],[D_loss: 0.6852796673774719]
+
+[Epoch: 9/10],[Batch: 86/92],[G_loss: 0.6662392616271973],[D_loss: 0.6857624650001526]
+
+[Epoch: 9/10],[Batch: 91/92],[G_loss: 0.6680199503898621],[D_loss: 0.6858857274055481]
+
+[Epoch: 10/10],[Batch: 1/92],[G_loss: 0.6689559817314148],[D_loss: 0.6858996748924255]
+
+original oligo         : --ACCGCAATAAGTCAACGATTTGCGATATACTTTCTACG$$$$$$$$$$----------------------------
+generated read         : CCCCCCC-------CCAC--------------------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: =<;<<<=------->>>>-------------------------------->>>>===>?>><<=>>>=<<==<<=<<=
+
+original oligo         : CGCACGGATTGTAGGAGTGGGAATGCGCAGCTAGCTAT$$$$$$$$$$-------------------------------
+generated read         : CCCCC--------------------CCC--------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ==<<<--------------------==>-------------------->?>>>====>>>>>>>>==<<=<<======>
+
+original oligo         : -----TCCAGTTAATTGAGATCCTGTCAGCTTTCCGACCGGTG$$$$$$$$$$----------------------
+generated read         : CCCCCCCCA---AA-------CC----------CC--CC--------------CCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ><;<<=?>>---?>------->>---------->>-->=--------------;<<==<<<===<;<<<;<=>>?
+
+[Epoch: 10/10],[Batch: 6/92],[G_loss: 0.6697819828987122],[D_loss: 0.6863932609558105]
+
+[Epoch: 10/10],[Batch: 11/92],[G_loss: 0.6687963604927063],[D_loss: 0.6875996589660645]
+
+[Epoch: 10/10],[Batch: 16/92],[G_loss: 0.6680746078491211],[D_loss: 0.6876522302627563]
+
+[Epoch: 10/10],[Batch: 21/92],[G_loss: 0.668644905090332],[D_loss: 0.6886211633682251]
+
+[Epoch: 10/10],[Batch: 26/92],[G_loss: 0.668168306350708],[D_loss: 0.6885950565338135]
+
+[Epoch: 10/10],[Batch: 31/92],[G_loss: 0.669202983379364],[D_loss: 0.688876748085022]
+
+[Epoch: 10/10],[Batch: 36/92],[G_loss: 0.670343279838562],[D_loss: 0.6886382102966309]
+
+[Epoch: 10/10],[Batch: 41/92],[G_loss: 0.6700143218040466],[D_loss: 0.6899785995483398]
+
+[Epoch: 10/10],[Batch: 46/92],[G_loss: 0.6718285083770752],[D_loss: 0.689666748046875]
+
+[Epoch: 10/10],[Batch: 51/92],[G_loss: 0.6697595119476318],[D_loss: 0.6910296678543091]
+
+original oligo         : ----------------------CCCATATCTAACAGCATTAGTAGAATATGGGACGCGTC$$$$$$$$$$--------
+generated read         : CCCCCCCCCCCCCCCCCCCCCCCCCA-----AAC--------------------CCC-------------CCCCCCCC
+generated quality score: <;;<<=>==<<<<=<=>>>>>>==>>----->>>--------------------???-------------==<=>=>>
+
+original oligo         : AATCATGAGGAATGAGCGAGTTGCGTCCCGGTGATCAT$$$$$$$$$$---------------------------------
+generated read         : AAAC----------------------CCC-------------------CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: ====----------------------===------------------->=>>>>>==<<==>>>====<;<=>>>>=<==>
+
+original oligo         : TACCTCGATTTGCGGCTCTACTAACCGCTACGTGTCTT$$$$$$$$$$---------------------------
+generated read         : AACCCC---------CCC------CCCC--------------------CCCCCCCCCCCCCCCCCCCCCCCCCCC
+generated quality score: >>=<<<---------<=>------>>><--------------------<======<===<;<<==<<=>>=>>>?
+
+[Epoch: 10/10],[Batch: 56/92],[G_loss: 0.6710013151168823],[D_loss: 0.6922791004180908]
+
+[Epoch: 10/10],[Batch: 61/92],[G_loss: 0.6704471707344055],[D_loss: 0.6913906335830688]
+
+[Epoch: 10/10],[Batch: 66/92],[G_loss: 0.6727337837219238],[D_loss: 0.6921736001968384]
+
+[Epoch: 10/10],[Batch: 71/92],[G_loss: 0.6724075078964233],[D_loss: 0.6924782991409302]
+
+[Epoch: 10/10],[Batch: 76/92],[G_loss: 0.671924889087677],[D_loss: 0.6928997039794922]
+
+[Epoch: 10/10],[Batch: 81/92],[G_loss: 0.6730401515960693],[D_loss: 0.6940383911132812]
+
+[Epoch: 10/10],[Batch: 86/92],[G_loss: 0.6729673147201538],[D_loss: 0.693932831287384]
+
+[Epoch: 10/10],[Batch: 91/92],[G_loss: 0.6709151268005371],[D_loss: 0.6948034167289734]
+
