@@ -326,26 +326,43 @@ def seq_simulator_qscore(opt, errorfree_filename, errorness_filename):
     """
     split_data_based_on_ed(opt.simulation_fname, errorfree_filename, errorness_filename)
     output_filename = opt.simulated_result_fname
+    len_oligo = opt.oligo_len
+    padding_s = opt.padding_num
 
-    opt.simulation_fname = errorfree_filename
-    opt.qscore_simulation_folder = opt.qscore_simulation_errorfree_folder
-    opt.qscore_simulation_fname = opt.qscore_simulation_errorfree_fname
-    opt.qscore_epoch_list = opt.qscore_errorfree_epoch_list
-    opt.simulated_result_fname = 'errorfree'
-    seq_simulator(opt)
+    # The errorfree case
+    if os.path.getsize(errorfree_filename):
+        opt.simulation_fname = errorfree_filename
+        opt.qscore_simulation_folder = opt.qscore_simulation_errorfree_folder
+        opt.qscore_simulation_fname = opt.qscore_simulation_errorfree_fname
+        opt.qscore_epoch_list = opt.qscore_errorfree_epoch_list
+        opt.simulated_result_fname = 'error-free'
+        opt.oligo_len = len_oligo
+        opt.padding_num = padding_s
+        seq_simulator(opt)
+        os.remove(errorfree_filename)
+    else:
+        print('No error free data file')
 
-    opt.simulation_fname = errorness_filename
-    opt.qscore_simulation_folder = opt.qscore_simulation_errorness_folder
-    opt.qscore_simulation_fname = opt.qscore_simulation_errorness_fname
-    opt.qscore_epoch_list = opt.qscore_errorness_epoch_list
-    opt.simulated_result_fname = 'errorness'
-    seq_simulator(opt)
+    # The errorness case
+    if os.path.getsize(errorness_filename):
+        opt.simulation_fname = errorness_filename
+        opt.qscore_simulation_folder = opt.qscore_simulation_errorness_folder
+        opt.qscore_simulation_fname = opt.qscore_simulation_errorness_fname
+        opt.qscore_epoch_list = opt.qscore_errorness_epoch_list
+        opt.simulated_result_fname = 'error-ness'
+        opt.oligo_len = len_oligo
+        opt.padding_num = padding_s
+        seq_simulator(opt)
+        os.remove(errorness_filename)
+    else:
+        print('No error ness data file')
 
+    # Merge the files to one
     if opt.mode == 'qscore_data':
         file_type = '.data'
     elif opt.mode == 'qscore_fastq':
         file_type = '.fastq'
-    errorfree_output = opt.simulated_result_path + 'errorfree' + file_type
-    errorness_output = opt.simulated_result_path + 'errorness' + file_type
+    errorfree_output = opt.simulated_result_path + 'error-free' + file_type
+    errorness_output = opt.simulated_result_path + 'error-ness' + file_type
     output_filename = opt.simulated_result_path + output_filename + file_type
     merge_simulated_data_to_one(errorfree_output, errorness_output, output_filename)

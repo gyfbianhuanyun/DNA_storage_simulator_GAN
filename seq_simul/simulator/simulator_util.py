@@ -162,6 +162,11 @@ def split_data_based_on_ed(original_filename, errorfree_filename, errorness_file
     if not original_filename.endswith('.data'):
         raise ValueError("qscore simulator needs two sequences, please check data file.")
 
+    # Check the input data size
+    if not os.path.getsize(original_filename):
+        raise ValueError("The input data is empty. Please check the input data.")
+
+    # Split data according to edit distance
     with open(f'{original_filename}', 'r') as f_in:
         with open(f'{errorfree_filename}', 'w') as f_errorfree,\
                 open(f'{errorness_filename}', 'w') as f_errorness:
@@ -211,11 +216,20 @@ def merge_simulated_data_to_one(errorfree_filename, errorness_filename, output_f
     OUTPUT:
         One file
     """
-    with open(errorfree_filename, 'r') as f1, open(errorness_filename, 'r') as f2:
-        with open(output_filename, 'w') as f_out:
-            _error_free_ = f1.read()
-            f_out.write(_error_free_)
-            _error_ness_ = f2.read()
-            f_out.write(_error_ness_)
+    if not os.path.exists(errorfree_filename):
+        os.rename(errorness_filename, output_filename)
+    elif not os.path.exists(errorness_filename):
+        os.rename(errorfree_filename, output_filename)
+    else:
+        with open(errorfree_filename, 'r') as f1, open(errorness_filename, 'r') as f2:
+            with open(output_filename, 'w') as f_out:
+                _error_free_ = f1.read()
+                f_out.write(_error_free_)
+                _error_ness_ = f2.read()
+                f_out.write(_error_ness_)
+
+        # Remove unnecessary data files
+        os.remove(errorfree_filename)
+        os.remove(errorness_filename)
 
     print('Merge data completed')
