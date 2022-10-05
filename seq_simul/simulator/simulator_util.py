@@ -140,3 +140,57 @@ def record_result(opt, oligo, read, qscore, index):
         logging.debug(simul_data_msg)
 
     return index + opt.simulation_batch_num
+
+
+def split_data_based_on_ed(original_filename, errorfree_filename, errorness_filename):
+    """
+    Because the qscore simulator is divided into two modes:
+        errorfree and errorness
+    according to the edit distance,
+    the data should be split according to the edit distance.
+    INPUT:
+        original_filename (:str:filename):
+            the input data file name
+        errorfree_filename (:str:filename):
+            the error-free data file name (edit distance is 0)
+        errorness_filename (:str:filename):
+            the error-ness data file name (edit distance is not 0)
+
+    OUTPUT:
+        Two files
+    """
+    if not original_filename.endswith('.data'):
+        raise ValueError("qscore simulator needs two sequences, please check data file.")
+
+    with open(f'{original_filename}', 'r') as f_in:
+        with open(f'{errorfree_filename}', 'w') as f_errorfree,\
+                open(f'{errorness_filename}', 'w') as f_errorness:
+            for idx, line in enumerate(f_in):
+                if idx % 5 == 0:
+                    read = line
+                elif idx % 5 == 1:
+                    qscore = line
+                elif idx % 5 == 2:
+                    oligo = line
+                elif idx % 5 == 3:
+                    ed = int(line.rstrip('\n'))
+                elif idx % 5 == 4:
+                    index = line
+
+                    if ed == 0:
+                        f_errorfree.write(read)
+                        f_errorfree.write(qscore)
+                        f_errorfree.write(oligo)
+                        f_errorfree.write(f'{ed}\n')
+                        f_errorfree.write(index)
+                    else:
+                        f_errorness.write(read)
+                        f_errorness.write(qscore)
+                        f_errorness.write(oligo)
+                        f_errorness.write(f'{ed}\n')
+                        f_errorness.write(index)
+
+                if not line:
+                    break
+
+    print('Splitting data based on edit distance is done')
