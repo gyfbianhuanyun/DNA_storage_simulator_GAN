@@ -339,9 +339,9 @@ def seq_simulator_qscore(opt, errorfree_filename, errorness_filename):
         opt.oligo_len = len_oligo
         opt.padding_num = padding_s
         seq_simulator(opt)
-        os.remove(errorfree_filename)
     else:
         print('No error free data file')
+    os.remove(errorfree_filename)
 
     # The errorness case
     if os.path.getsize(errorness_filename):
@@ -353,9 +353,9 @@ def seq_simulator_qscore(opt, errorfree_filename, errorness_filename):
         opt.oligo_len = len_oligo
         opt.padding_num = padding_s
         seq_simulator(opt)
-        os.remove(errorness_filename)
     else:
         print('No error ness data file')
+    os.remove(errorness_filename)
 
     # Merge the files to one
     if opt.mode == 'qscore_data':
