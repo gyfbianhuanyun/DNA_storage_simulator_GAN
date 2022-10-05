@@ -10,6 +10,8 @@ if __name__ == "__main__":
     parser.add_argument("--error_proportion_file", type=str,
                         default="seq_simul/data/test_error_proportion.log",
                         help="path of the error proportion log file")
+    parser.add_argument("--read_data", type=str, default='read',
+                        help="data to read (read|qscore)")
     parser.add_argument("--mode", type=str, default='read',
                         help="qscore_data: qscore only, input data is .data, saved in .data format\
                               qscore_fastq: qscore only, input data is .data, saved in fastq format\
