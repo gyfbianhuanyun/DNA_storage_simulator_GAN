@@ -129,7 +129,7 @@ def record_result(opt, oligo, read, qscore, index):
             simul_data_msg = f'{i+index}\n' \
                              f'{final_read}\n' \
                              f'+\n' \
-                             f'{final_qscore}'\
+                             f'{final_qscore}\n'\
                              f'{final_oligo}'
         elif opt.mode == 'qscore_fastq':
             simul_data_msg = f'{i+index}\n' \
