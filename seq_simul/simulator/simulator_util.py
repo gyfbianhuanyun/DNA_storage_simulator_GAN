@@ -194,3 +194,28 @@ def split_data_based_on_ed(original_filename, errorfree_filename, errorness_file
                     break
 
     print('Splitting data based on edit distance is done')
+
+
+def merge_simulated_data_to_one(errorfree_filename, errorness_filename, output_filename):
+    """
+    Merge the errorfree and errorness files to one output fil
+    according to the edit distance,
+    the data should be split according to the edit distance.
+    INPUT:
+        errorfree_filename (:str:filename):
+            the error-free data file name (edit distance is 0)
+        errorness_filename (:str:filename):
+            the error-ness data file name (edit distance is not 0)
+        output_filename (:str:filename):
+            the output data file name
+    OUTPUT:
+        One file
+    """
+    with open(errorfree_filename, 'r') as f1, open(errorness_filename, 'r') as f2:
+        with open(output_filename, 'w') as f_out:
+            _error_free_ = f1.read()
+            f_out.write(_error_free_)
+            _error_ness_ = f2.read()
+            f_out.write(_error_ness_)
+
+    print('Merge data completed')
