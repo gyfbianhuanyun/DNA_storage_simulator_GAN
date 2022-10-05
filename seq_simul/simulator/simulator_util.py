@@ -167,26 +167,26 @@ def split_data_based_on_ed(original_filename, errorfree_filename, errorness_file
                 open(f'{errorness_filename}', 'w') as f_errorness:
             for idx, line in enumerate(f_in):
                 if idx % 5 == 0:
-                    read = line
+                    read = line.rstrip('\n')
                 elif idx % 5 == 1:
                     qscore = line
                 elif idx % 5 == 2:
-                    oligo = line
+                    oligo = line.rstrip('\n')
                 elif idx % 5 == 3:
-                    ed = int(line.rstrip('\n'))
+                    ed = v_lev_dist(oligo, read)
                 elif idx % 5 == 4:
                     index = line
 
                     if ed == 0:
-                        f_errorfree.write(read)
+                        f_errorfree.write(f'{read}\n')
                         f_errorfree.write(qscore)
-                        f_errorfree.write(oligo)
+                        f_errorfree.write(f'{oligo}\n')
                         f_errorfree.write(f'{ed}\n')
                         f_errorfree.write(index)
                     else:
-                        f_errorness.write(read)
+                        f_errorness.write(f'{read}\n')
                         f_errorness.write(qscore)
-                        f_errorness.write(oligo)
+                        f_errorness.write(f'{oligo}\n')
                         f_errorness.write(f'{ed}\n')
                         f_errorness.write(index)
 
