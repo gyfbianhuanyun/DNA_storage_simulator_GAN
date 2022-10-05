@@ -301,9 +301,12 @@ python simulator.py --mode=read
 		    --del_epoch_list 0 1 2 3 4 5 6 7 8 9
 
 python simulator.py --mode=qscore_fastq
-		    --qscore_simulation_folder=pre-trained_parameters
-		    --qscore_simulation_fname=errorness
-		    --qscore_epoch_list 0
+		    --qscore_simulation_errorfree_folder=pre-trained_parameters
+		    --qscore_simulation_errorfree_fname=errorfree
+		    --qscore_errorfree_epoch_list 0
+		    --qscore_simulation_errorness_folder=pre-trained_parameters
+		    --qscore_simulation_errorness_fname=errorness
+		    --qscore_errorness_epoch_list 0
 		    --simulation_fname=results/simulations/simulated.data
 ```
 
