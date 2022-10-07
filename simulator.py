@@ -1,7 +1,7 @@
 import argparse
 import os
 
-from seq_simul.simulator.seq_simulator import seq_simulator
+from seq_simul.simulator.seq_simulator import seq_simulator, seq_simulator_qscore
 
 
 if __name__ == "__main__":
@@ -23,7 +23,7 @@ if __name__ == "__main__":
     parser.add_argument("--simulation_fname", type=str,
                         default="seq_simul/data/test_oligo.txt",
                         help="if mode=all|read, input data is oligo(.txt)\
-                              if mode=qscore, input datais .data file")
+                              if mode=qscore, input data is .data file")
     parser.add_argument("--simulated_result_path", type=str, default="results/simulations/",
                         help="location of simulation folder path")
     parser.add_argument("--simulated_result_fname", type=str, default="simulated",
@@ -72,6 +72,22 @@ if __name__ == "__main__":
                         help="range of epoch to randomize for qscore simulation")
     parser.add_argument("--qscore_epoch_list", nargs='+', default=[0, 1],
                         help="list of epoch for qscore simulation")
+    parser.add_argument("--qscore_simulation_errorfree_folder", type=str,
+                        default="seq_simul/simulator/tests",
+                        help="path of the pth folder for qscore simulation errorfree situation")
+    parser.add_argument("--qscore_simulation_errorfree_fname", type=str,
+                        default='trained_qscore_G',
+                        help="range of epoch to randomize for qscore simulation errorfree situation")
+    parser.add_argument("--qscore_errorfree_epoch_list", nargs='+', default=[0, 1],
+                        help="list of epoch for qscore simulation errorfree situation")
+    parser.add_argument("--qscore_simulation_errorness_folder", type=str,
+                        default="seq_simul/simulator/tests",
+                        help="path of the pth folder for qscore simulation errorness situation")
+    parser.add_argument("--qscore_simulation_errorness_fname", type=str,
+                        default='trained_qscore_G',
+                        help="range of epoch to randomize for qscore simulation errorness situation")
+    parser.add_argument("--qscore_errorness_epoch_list", nargs='+', default=[0, 1],
+                        help="list of epoch for qscore simulation errorness situation")
 
     # Fixed options from json file
     parser.add_argument("--oligo_len", type=int, default=145,
@@ -115,11 +131,14 @@ if __name__ == "__main__":
 
     os.makedirs(simulator_opt.simulated_result_path, exist_ok=True)
 
-    seq_simulator(simulator_opt)
     if simulator_opt.mode == "read":
+        seq_simulator(simulator_opt)
         print("Read-sequence Simulation Complete")
 
     elif simulator_opt.mode in ('qscore_data', 'qscore_fastq'):
+        filename_errorfree = simulator_opt.simulated_result_path + 'errorfree.data'
+        filename_errorness = simulator_opt.simulated_result_path + 'errorness.data'
+        seq_simulator_qscore(simulator_opt, filename_errorfree, filename_errorness)
         print("Quality-score Simulation Complete")
 
     else:

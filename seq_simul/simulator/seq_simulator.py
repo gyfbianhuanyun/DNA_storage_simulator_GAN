@@ -9,7 +9,8 @@ from seq_simul.utils.convert import (convert_onehot_to_read, concat_seq,
                                      convert_seqs_to_onehot, get_list_seq)
 from seq_simul.utils.miscs import get_device
 from seq_simul.simulator.simulator_util import (load_simulator_input, get_read_simulator,
-                                                get_qscore_simulator, record_result)
+                                                get_qscore_simulator, record_result,
+                                                split_data_based_on_ed, merge_simulated_data_to_one)
 
 
 def read_simulator(oligos, picked_G, G_ins, G_sub, G_del, ins_opt, sub_opt, del_opt, device):
@@ -310,3 +311,58 @@ def seq_simulator(opt):
                                                                            qscore_opt, G_qs, device)
 
         index = record_result(opt, result_oligos, result_reads, result_qscores, index)
+
+
+def seq_simulator_qscore(opt, errorfree_filename, errorness_filename):
+    """
+        The flow of the qscore sequence simulator
+        INPUT:
+            opt (:obj:`Namespace`):
+                the set of parameters
+            errorfree_filename (:str:filename):
+                the error-free data file name (edit distance is 0)
+            errorness_filename (:str:filename):
+                the error-ness data file name (edit distance is not 0)
+    """
+    split_data_based_on_ed(opt.simulation_fname, errorfree_filename, errorness_filename)
+    output_filename = opt.simulated_result_fname
+    len_oligo = opt.oligo_len
+    padding_s = opt.padding_num
+
+    # The errorfree case
+    if os.path.getsize(errorfree_filename):
+        opt.simulation_fname = errorfree_filename
+        opt.qscore_simulation_folder = opt.qscore_simulation_errorfree_folder
+        opt.qscore_simulation_fname = opt.qscore_simulation_errorfree_fname
+        opt.qscore_epoch_list = opt.qscore_errorfree_epoch_list
+        opt.simulated_result_fname = 'error-free'
+        opt.oligo_len = len_oligo
+        opt.padding_num = padding_s
+        seq_simulator(opt)
+    else:
+        print('No error free data file')
+    os.remove(errorfree_filename)
+
+    # The errorness case
+    if os.path.getsize(errorness_filename):
+        opt.simulation_fname = errorness_filename
+        opt.qscore_simulation_folder = opt.qscore_simulation_errorness_folder
+        opt.qscore_simulation_fname = opt.qscore_simulation_errorness_fname
+        opt.qscore_epoch_list = opt.qscore_errorness_epoch_list
+        opt.simulated_result_fname = 'error-ness'
+        opt.oligo_len = len_oligo
+        opt.padding_num = padding_s
+        seq_simulator(opt)
+    else:
+        print('No error ness data file')
+    os.remove(errorness_filename)
+
+    # Merge the files to one
+    if opt.mode == 'qscore_data':
+        file_type = '.data'
+    elif opt.mode == 'qscore_fastq':
+        file_type = '.fastq'
+    errorfree_output = opt.simulated_result_path + 'error-free' + file_type
+    errorness_output = opt.simulated_result_path + 'error-ness' + file_type
+    output_filename = opt.simulated_result_path + output_filename + file_type
+    merge_simulated_data_to_one(errorfree_output, errorness_output, output_filename)
