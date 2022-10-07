@@ -203,7 +203,7 @@ def split_data_based_on_ed(original_filename, errorfree_filename, errorness_file
 
 def merge_simulated_data_to_one(errorfree_filename, errorness_filename, output_filename):
     """
-    Merge the errorfree and errorness files to one output fil
+    Merge the errorfree and errorness files to one output file
     according to the edit distance,
     the data should be split according to the edit distance.
     INPUT:
