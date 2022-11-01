@@ -38,6 +38,17 @@ pip install seqanpy
 pip install -e .
 ```
 
+## Data description
+We use the same oligo design proposed by Jeong et al (<https://doi.org/10.1093/bioinformatics/btab246>).
+
+There are 18,000 oligos of length 152 in the dataset (stored in original_files directory),
+where all oligos have balanced GC contents (base G and C proportion is between 45 to 55 percent)
+and homopolymer run length is limited by 3.
+We obtain the corresponding FASTQ file from the single experiment, consisting of reads and quality scores.
+Due to GitHub repository data size limitations,
+upload them with partition compression and store them in the fastq_files directory.
+We use reverse reads to train the data.
+
 ## Generate Dataset (Processing Pipeline)
 Processing pipeline generates the data for training simulator.
 
