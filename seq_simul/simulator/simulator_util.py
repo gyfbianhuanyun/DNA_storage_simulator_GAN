@@ -43,7 +43,7 @@ def load_simulator_input(ext, opt):
     else:
         raise ValueError(f"Please confirm the data type, now it is {ext}, the requirement is .txt or .data")
 
-    dataloader = DataLoader(dataset, batch_size=opt.simulation_batch_num, shuffle=True, drop_last=False)
+    dataloader = DataLoader(dataset, batch_size=opt.simulation_batch_num, shuffle=False, drop_last=False)
 
     return dataloader
 
