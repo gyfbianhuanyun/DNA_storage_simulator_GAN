@@ -143,7 +143,7 @@ def get_profile_vector(error_proportion_file):
             activate_list (:obj:`list`):
                 list of activate read Generator based on error proportion
     """
-    p = []
+    p_list = []
 
     G_activate_dict = {'0': ['ins'],
                        '1': ['sub'],
@@ -158,9 +158,9 @@ def get_profile_vector(error_proportion_file):
     f = open(f'{error_proportion_file}', 'r')
     lines = f.read().splitlines()
     for line in lines:
-        p.append(line.split(':')[1])
+        p_list.append(float(line.split(':')[1]) / 100)
     # Pick activated generator based p-vector
-    activate_num = np.random.choice(len(p), 1, p)
+    activate_num = np.random.choice(len(p_list), 1, p=p_list)
     activate_num = str(activate_num.tolist()[0])
     activate_list = G_activate_dict[activate_num]
     return activate_list
